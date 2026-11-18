@@ -1,0 +1,17 @@
+# Python: archivos compilados y cachés
+__pycache__/
+*.py[cod]
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Editores y sistema operativo
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# IMPORTANTE: NO se ignora logs/sistema.log. El archivo de log es la evidencia de la
+# simulación y debe subirse al repositorio. (La plantilla "Python" que ofrece GitHub
+# trae la regla "*.log", que lo ignoraría: por eso este archivo no la incluye.)
