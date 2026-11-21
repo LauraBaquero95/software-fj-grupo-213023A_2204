@@ -1,0 +1,129 @@
+2026-11-18 20:15:44 | INFO | gestor_fj | GestorFJ iniciado
+2026-11-18 20:15:44 | INFO | operaciones | Inicio de la simulación
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 1: Registrar cliente válido
+2026-11-18 20:15:44 | INFO | gestor_fj | Cliente registrado: CLI-001
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 2: Registrar segundo cliente válido
+2026-11-18 20:15:44 | INFO | gestor_fj | Cliente registrado: CLI-002
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 3: Registrar cliente con correo inválido
+2026-11-18 20:15:44 | ERROR | gestor_fj | Falló el registro del cliente: ClienteInvalidoError: [FJ-101] Correo inválido: El correo 'correo-sin-arroba' no tiene un formato válido. <- causa: ValueError: El correo 'correo-sin-arroba' no tiene un formato válido.
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 4: Registrar cliente duplicado
+2026-11-18 20:15:44 | ERROR | gestor_fj | Falló el registro del cliente: ClienteInvalidoError: [FJ-101] Cliente 'CLI-001' ya se encuentra registrado
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 5: Registrar servicios válidos (sala, equipo, asesoría)
+2026-11-18 20:15:44 | INFO | gestor_fj | Servicio registrado: SAL-001
+2026-11-18 20:15:44 | INFO | gestor_fj | Servicio registrado: EQP-001
+2026-11-18 20:15:44 | INFO | gestor_fj | Servicio registrado: ASE-001
+2026-11-18 20:15:44 | INFO | gestor_fj | Servicio registrado: EQP-002
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 6: Registrar servicios con datos inválidos
+2026-11-18 20:15:44 | ERROR | gestor_fj | Creación de servicio fallida: ServicioInvalidoError: [FJ-102] Datos de la asesoría inválidos: nivel 'maestro' no existe (opciones: junior, senior, experto). <- causa: ValueError: nivel 'maestro' no existe (opciones: junior, senior, experto).
+2026-11-18 20:15:44 | ERROR | gestor_fj | Creación de servicio fallida: ServicioInvalidoError: [FJ-102] Datos de la sala inválidos: El campo 'capacidad' debe ser mayor que cero. <- causa: ValueError: El campo 'capacidad' debe ser mayor que cero.
+2026-11-18 20:15:44 | ERROR | gestor_fj | Creación de servicio fallida: ServicioNoDisponibleError: [FJ-103] El tipo de servicio no es válido
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 7: Crear reservas válidas
+2026-11-18 20:15:44 | INFO | gestor_fj | Reserva creada: RES-0001 (cliente CLI-001, servicio SAL-001)
+2026-11-18 20:15:44 | INFO | gestor_fj | Reserva creada: RES-0002 (cliente CLI-002, servicio EQP-001)
+2026-11-18 20:15:44 | INFO | gestor_fj | Reserva creada: RES-0003 (cliente CLI-001, servicio ASE-001)
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 8: Crear reservas con duración inválida
+2026-11-18 20:15:44 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ReservaInvalidaError: [FJ-104] La duración debe estar entre 1 y 12 horas (recibido: 15).
+2026-11-18 20:15:44 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ReservaInvalidaError: [FJ-104] La duración debe estar entre 1 y 30 días (recibido: 0).
+2026-11-18 20:15:44 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ReservaInvalidaError: [FJ-104] La duración debe ser un número entero de horas.
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 9: Crear reservas con cliente/servicio inválido
+2026-11-18 20:15:44 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ClienteInvalidoError: [FJ-101] No se encontró cliente con Id 'CLI-999'
+2026-11-18 20:15:44 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ServicioNoDisponibleError: [FJ-103] No existe servicio con Id 'SAL-999'
+2026-11-18 20:15:44 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ServicioNoDisponibleError: [FJ-103] El servicio 'Cámara 4K' no está disponible.
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 10: Confirmar y procesar con impuesto y descuento
+2026-11-18 20:15:44 | INFO | gestor_fj | Reserva 'RES-0001': confirmar realizado
+2026-11-18 20:15:44 | INFO | gestor_fj | Reserva 'RES-0001': procesar realizado
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 11: Cálculo inválido y reintento
+2026-11-18 20:15:44 | INFO | gestor_fj | Reserva 'RES-0003': confirmar realizado
+2026-11-18 20:15:44 | ERROR | gestor_fj | No se pudo procesar la reserva 'RES-0003': CalculoInconsistenteError: [FJ-107] El descuento debe estar entre 0 % y 100 % (recibido: 150 %).
+2026-11-18 20:15:44 | INFO | gestor_fj | Reserva 'RES-0003': procesar realizado
+2026-11-18 20:15:44 | INFO | operaciones | Simulación - operación 12: Cancelar y operar sobre un estado final
+2026-11-18 20:15:44 | INFO | gestor_fj | Reserva 'RES-0002': cancelar realizado
+2026-11-18 20:15:44 | ERROR | gestor_fj | No se pudo confirmar la reserva 'RES-0002': OperacionNoPermitidaError: [FJ-105] No se puede confirmar la reserva RES-0002: estado CANCELADA.
+2026-11-18 20:15:44 | ERROR | gestor_fj | No se pudo procesar la reserva 'RES-0002': OperacionNoPermitidaError: [FJ-105] No se puede procesar la reserva RES-0002: estado CANCELADA.
+2026-11-18 20:15:44 | INFO | operaciones | Fin de la simulación
+2026-11-21 18:29:40 | INFO | gestor_fj | GestorFJ iniciado
+2026-11-21 18:29:40 | INFO | operaciones | Inicio de la simulación
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 1: Registrar cliente válido
+2026-11-21 18:29:40 | INFO | gestor_fj | Cliente registrado: CLI-001
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 2: Registrar segundo cliente válido
+2026-11-21 18:29:40 | INFO | gestor_fj | Cliente registrado: CLI-002
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 3: Registrar cliente con correo inválido
+2026-11-21 18:29:40 | ERROR | gestor_fj | Falló el registro del cliente: ClienteInvalidoError: [FJ-101] Correo inválido: El correo 'correo-sin-arroba' no tiene un formato válido. <- causa: ValueError: El correo 'correo-sin-arroba' no tiene un formato válido.
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 4: Registrar cliente duplicado
+2026-11-21 18:29:40 | ERROR | gestor_fj | Falló el registro del cliente: ClienteInvalidoError: [FJ-101] Cliente 'CLI-001' ya se encuentra registrado
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 5: Registrar servicios válidos (sala, equipo, asesoría)
+2026-11-21 18:29:40 | INFO | gestor_fj | Servicio registrado: SAL-001
+2026-11-21 18:29:40 | INFO | gestor_fj | Servicio registrado: EQP-001
+2026-11-21 18:29:40 | INFO | gestor_fj | Servicio registrado: ASE-001
+2026-11-21 18:29:40 | INFO | gestor_fj | Servicio registrado: EQP-002
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 6: Registrar servicios con datos inválidos
+2026-11-21 18:29:40 | ERROR | gestor_fj | Creación de servicio fallida: ServicioInvalidoError: [FJ-102] Datos de la asesoría inválidos: nivel 'maestro' no existe (opciones: junior, senior, experto). <- causa: ValueError: nivel 'maestro' no existe (opciones: junior, senior, experto).
+2026-11-21 18:29:40 | ERROR | gestor_fj | Creación de servicio fallida: ServicioInvalidoError: [FJ-102] Datos de la sala inválidos: El campo 'capacidad' debe ser mayor que cero. <- causa: ValueError: El campo 'capacidad' debe ser mayor que cero.
+2026-11-21 18:29:40 | ERROR | gestor_fj | Creación de servicio fallida: ServicioNoDisponibleError: [FJ-103] El tipo de servicio no es válido
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 7: Crear reservas válidas
+2026-11-21 18:29:40 | INFO | gestor_fj | Reserva creada: RES-0001 (cliente CLI-001, servicio SAL-001)
+2026-11-21 18:29:40 | INFO | gestor_fj | Reserva creada: RES-0002 (cliente CLI-002, servicio EQP-001)
+2026-11-21 18:29:40 | INFO | gestor_fj | Reserva creada: RES-0003 (cliente CLI-001, servicio ASE-001)
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 8: Crear reservas con duración inválida
+2026-11-21 18:29:40 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ReservaInvalidaError: [FJ-104] La duración debe estar entre 1 y 12 horas (recibido: 15).
+2026-11-21 18:29:40 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ReservaInvalidaError: [FJ-104] La duración debe estar entre 1 y 30 días (recibido: 0).
+2026-11-21 18:29:40 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ReservaInvalidaError: [FJ-104] La duración debe ser un número entero de horas.
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 9: Crear reservas con cliente/servicio inválido
+2026-11-21 18:29:40 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ClienteInvalidoError: [FJ-101] No se encontró cliente con Id 'CLI-999'
+2026-11-21 18:29:40 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ServicioNoDisponibleError: [FJ-103] No existe servicio con Id 'SAL-999'
+2026-11-21 18:29:40 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ServicioNoDisponibleError: [FJ-103] El servicio 'Cámara 4K' no está disponible.
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 10: Confirmar y procesar con impuesto y descuento
+2026-11-21 18:29:40 | INFO | gestor_fj | Reserva 'RES-0001': confirmar realizado
+2026-11-21 18:29:40 | INFO | gestor_fj | Reserva 'RES-0001': procesar realizado
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 11: Cálculo inválido y reintento
+2026-11-21 18:29:40 | INFO | gestor_fj | Reserva 'RES-0003': confirmar realizado
+2026-11-21 18:29:40 | ERROR | gestor_fj | No se pudo procesar la reserva 'RES-0003': CalculoInconsistenteError: [FJ-107] El descuento debe estar entre 0 % y 100 % (recibido: 150 %).
+2026-11-21 18:29:40 | INFO | gestor_fj | Reserva 'RES-0003': procesar realizado
+2026-11-21 18:29:40 | INFO | operaciones | Simulación - operación 12: Cancelar y operar sobre un estado final
+2026-11-21 18:29:40 | INFO | gestor_fj | Reserva 'RES-0002': cancelar realizado
+2026-11-21 18:29:40 | ERROR | gestor_fj | No se pudo confirmar la reserva 'RES-0002': OperacionNoPermitidaError: [FJ-105] No se puede confirmar la reserva RES-0002: estado CANCELADA.
+2026-11-21 18:29:40 | ERROR | gestor_fj | No se pudo procesar la reserva 'RES-0002': OperacionNoPermitidaError: [FJ-105] No se puede procesar la reserva RES-0002: estado CANCELADA.
+2026-11-21 18:29:40 | INFO | operaciones | Fin de la simulación
+2026-11-21 18:35:08 | INFO | gestor_fj | GestorFJ iniciado
+2026-11-21 18:35:08 | INFO | operaciones | Inicio de la simulación
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 1: Registrar cliente válido
+2026-11-21 18:35:08 | INFO | gestor_fj | Cliente registrado: CLI-001
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 2: Registrar segundo cliente válido
+2026-11-21 18:35:08 | INFO | gestor_fj | Cliente registrado: CLI-002
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 3: Registrar cliente con correo inválido
+2026-11-21 18:35:08 | ERROR | gestor_fj | Falló el registro del cliente: ClienteInvalidoError: [FJ-101] Correo inválido: El correo 'correo-sin-arroba' no tiene un formato válido. <- causa: ValueError: El correo 'correo-sin-arroba' no tiene un formato válido.
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 4: Registrar cliente duplicado
+2026-11-21 18:35:08 | ERROR | gestor_fj | Falló el registro del cliente: ClienteInvalidoError: [FJ-101] Cliente 'CLI-001' ya se encuentra registrado
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 5: Registrar servicios válidos (sala, equipo, asesoría)
+2026-11-21 18:35:08 | INFO | gestor_fj | Servicio registrado: SAL-001
+2026-11-21 18:35:08 | INFO | gestor_fj | Servicio registrado: EQP-001
+2026-11-21 18:35:08 | INFO | gestor_fj | Servicio registrado: ASE-001
+2026-11-21 18:35:08 | INFO | gestor_fj | Servicio registrado: EQP-002
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 6: Registrar servicios con datos inválidos
+2026-11-21 18:35:08 | ERROR | gestor_fj | Creación de servicio fallida: ServicioInvalidoError: [FJ-102] Datos de la asesoría inválidos: nivel 'maestro' no existe (opciones: junior, senior, experto). <- causa: ValueError: nivel 'maestro' no existe (opciones: junior, senior, experto).
+2026-11-21 18:35:08 | ERROR | gestor_fj | Creación de servicio fallida: ServicioInvalidoError: [FJ-102] Datos de la sala inválidos: El campo 'capacidad' debe ser mayor que cero. <- causa: ValueError: El campo 'capacidad' debe ser mayor que cero.
+2026-11-21 18:35:08 | ERROR | gestor_fj | Creación de servicio fallida: ServicioNoDisponibleError: [FJ-103] El tipo de servicio no es válido
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 7: Crear reservas válidas
+2026-11-21 18:35:08 | INFO | gestor_fj | Reserva creada: RES-0001 (cliente CLI-001, servicio SAL-001)
+2026-11-21 18:35:08 | INFO | gestor_fj | Reserva creada: RES-0002 (cliente CLI-002, servicio EQP-001)
+2026-11-21 18:35:08 | INFO | gestor_fj | Reserva creada: RES-0003 (cliente CLI-001, servicio ASE-001)
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 8: Crear reservas con duración inválida
+2026-11-21 18:35:08 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ReservaInvalidaError: [FJ-104] La duración debe estar entre 1 y 12 horas (recibido: 15).
+2026-11-21 18:35:08 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ReservaInvalidaError: [FJ-104] La duración debe estar entre 1 y 30 días (recibido: 0).
+2026-11-21 18:35:08 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ReservaInvalidaError: [FJ-104] La duración debe ser un número entero de horas.
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 9: Crear reservas con cliente/servicio inválido
+2026-11-21 18:35:08 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ClienteInvalidoError: [FJ-101] No se encontró cliente con Id 'CLI-999'
+2026-11-21 18:35:08 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ServicioNoDisponibleError: [FJ-103] No existe servicio con Id 'SAL-999'
+2026-11-21 18:35:08 | ERROR | gestor_fj | ErrorGestion: [FJ-100] No fue posible crear la reserva <- causa: ServicioNoDisponibleError: [FJ-103] El servicio 'Cámara 4K' no está disponible.
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 10: Confirmar y procesar con impuesto y descuento
+2026-11-21 18:35:08 | INFO | gestor_fj | Reserva 'RES-0001': confirmar realizado
+2026-11-21 18:35:08 | INFO | gestor_fj | Reserva 'RES-0001': procesar realizado
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 11: Cálculo inválido y reintento
+2026-11-21 18:35:08 | INFO | gestor_fj | Reserva 'RES-0003': confirmar realizado
+2026-11-21 18:35:08 | ERROR | gestor_fj | No se pudo procesar la reserva 'RES-0003': CalculoInconsistenteError: [FJ-107] El descuento debe estar entre 0 % y 100 % (recibido: 150 %).
+2026-11-21 18:35:08 | INFO | gestor_fj | Reserva 'RES-0003': procesar realizado
+2026-11-21 18:35:08 | INFO | operaciones | Simulación - operación 12: Cancelar y operar sobre un estado final
+2026-11-21 18:35:08 | INFO | gestor_fj | Reserva 'RES-0002': cancelar realizado
+2026-11-21 18:35:08 | ERROR | gestor_fj | No se pudo confirmar la reserva 'RES-0002': OperacionNoPermitidaError: [FJ-105] No se puede confirmar la reserva RES-0002: estado CANCELADA.
+2026-11-21 18:35:08 | ERROR | gestor_fj | No se pudo procesar la reserva 'RES-0002': OperacionNoPermitidaError: [FJ-105] No se puede procesar la reserva RES-0002: estado CANCELADA.
+2026-11-21 18:35:08 | INFO | operaciones | Fin de la simulación
